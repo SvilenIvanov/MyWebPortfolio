@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ptl4DTtkxXkIB8HlEaEdkJjExBtAF6pKu+AFkFkcHtI=",
+  "Hash": "2j0p5jNTP3X/AI9Mtu1dWQBADEEL1UZSOMwcldzNzSc=",
   "Source": "MyWebPortfolio",
   "BasePath": "_content/MyWebPortfolio",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MyWebPortfolio.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\css\\bootswatchTheme.css",
+      "SourceId": "MyWebPortfolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\",
+      "BasePath": "_content/MyWebPortfolio",
+      "RelativePath": "css/bootswatchTheme.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\bootswatchTheme.css"
     },
     {
       "Identity": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\css\\site.css",
