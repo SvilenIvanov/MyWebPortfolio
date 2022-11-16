@@ -3,31 +3,45 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Category panel</h1>
 
-<table class="table table-bordered table-striped" style="width:100%">
-    <thead>
-        <tr>
-            <th>
-                Category Name
-            </th>
-            <th>
-                Display Order
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(Category category in Model){
+<div class=" container p-3">
+
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Category list</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controler="Category" asp-action="Create" class="btn btn-primary">
+                Create New Category
+            </a>
+        </div>
+    </div>
+
+
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
             <tr>
-                <td with= "50%">
-                    @category.Name
-                </td>
-                <td width="35%">
-                    @category.DisplayOrder
-                </td>
+                <th>
+                    Category Name
+                </th>
+                <th>
+                    Display Order
+                </th>
             </tr>
-        }
+        </thead>
+        <tbody>
+            @foreach (Category category in Model) {
+                <tr>
+                    <td with="50%">
+                        @category.Name
+                    </td>
+                    <td width="35%">
+                        @category.DisplayOrder
+                    </td>
+                </tr>
+            }
 
-    </tbody>
+        </tbody>
 
-</table>
+    </table>
+</div>
