@@ -23,6 +23,12 @@ namespace MyWebPortfolio.Controllers {
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Category category) { //POST
+
+            if(category.Name == category.DisplayOrder.ToString()) {
+
+                ModelState.AddModelError("NameOrderMatchingError", "The display order can't exactly match the name.");
+                //return View(category);
+            }
             if (ModelState.IsValid) {
                 try {
                     _db.Categories.Add(category);
