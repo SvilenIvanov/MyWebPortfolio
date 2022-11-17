@@ -16,7 +16,16 @@ namespace MyWebPortfolio.Controllers {
             IEnumerable<Category> categories = _db.Categories;
             return View(categories);
         }
-        public IActionResult Create() {
+        public IActionResult Create() { //GET
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Category category) { //POST
+
+            _db.Categories.Add(category);
+            _db.SaveChanges();
             return View();
         }
     }
