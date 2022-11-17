@@ -23,10 +23,17 @@ namespace MyWebPortfolio.Controllers {
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Category category) { //POST
-
-            _db.Categories.Add(category);
-            _db.SaveChanges();
-            return View();
+            if (ModelState.IsValid) {
+                try {
+                    _db.Categories.Add(category);
+                    _db.SaveChanges();
+                } catch(Exception ex) {
+                    Console.WriteLine(String.Format("Could not add category {0} to database: {1}", 
+                        category, ex.Message));
+                }
+                return RedirectToAction("Index");
+            }
+            return View(category);
         }
     }
 }

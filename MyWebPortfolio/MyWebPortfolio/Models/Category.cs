@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyWebPortfolio.Models {
     public class Category {
@@ -10,7 +11,10 @@ namespace MyWebPortfolio.Models {
         [Required]
         public string Name { get; set; } = "";
 
-
+        public override String ToString() {
+            return String.Format("Id:{0} DisplayOrder:{1} CreatedDateTime:{2} Name:{3}"
+                , Id.ToString(),DisplayOrder.ToString(), CreatedDateTime.ToString(), Name.ToString());
+        }
     }
     
 
