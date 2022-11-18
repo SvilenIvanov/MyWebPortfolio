@@ -38,6 +38,12 @@
                     <td width="35%">
                         @category.DisplayOrder
                     </td>
+                    <td>
+                        <div class="w-75 btn-group" role = "group">
+
+                            <a asp-controller="Category" asp-action="Edit" asp-route-id="@category.Id" > <i class="bi bi-pencil-square"></i> Edit</a>
+                        </div>
+                    </td>
                 </tr>
             }
 
