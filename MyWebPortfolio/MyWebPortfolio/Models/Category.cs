@@ -1,14 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace MyWebPortfolio.Models {
     public class Category {
 
-        [Key]
+        [Key] // primary key
         public int Id {get; set;}
+        [DisplayName("Display Order")] // changing the show name of the property
         public int DisplayOrder {get; set;}
+        [DisplayName("Created time")] // changing the show name of the property
         public DateTime CreatedDateTime {get; set;} = DateTime.Now;
-        [Required]
+        [Required] //db property
         public string Name { get; set; } = "";
 
         public override String ToString() {
