@@ -33,7 +33,7 @@ namespace MyWebPortfolio.Controllers {
                     _db.Categories.Add(category);
                     _db.SaveChanges();
                 } catch(Exception ex) {
-                    Console.WriteLine(String.Format("Could not add category {0} to database: {1}", 
+                    Console.WriteLine(String.Format("Could not add category {0} to database. {1}", 
                         category, ex.Message));
                 }
                 return RedirectToAction("Index");
@@ -42,9 +42,6 @@ namespace MyWebPortfolio.Controllers {
         }
 
 
-        public IActionResult Edit() { //GET
-            return View();
-        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -59,6 +56,25 @@ namespace MyWebPortfolio.Controllers {
             }
             return View(category);
 
+        }
+        public IActionResult Edit(Category category) { //POST
+
+            if (category.Name == category.DisplayOrder.ToString()) {
+
+                ModelState.AddModelError("NameOrderMatchingError", "The display order can't exactly match the name.");
+            }
+            if (ModelState.IsValid) {
+                try {
+                    _db.Categories.Update(category);
+                    _db.SaveChanges();
+                }
+                catch (Exception ex) {
+                    Console.WriteLine(String.Format("Could not update category {0} to database. {1}",
+                        category, ex.Message));
+                }
+                return RedirectToAction("Index");
+            }
+            return View(category);
         }
 
     }
