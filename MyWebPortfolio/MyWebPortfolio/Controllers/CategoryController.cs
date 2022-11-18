@@ -91,7 +91,7 @@ namespace MyWebPortfolio.Controllers {
 
         }
 
-        [HttpPost]
+        [HttpPost,ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeletePOST(int? id) { //post
             if (id == null || id == 0) {
