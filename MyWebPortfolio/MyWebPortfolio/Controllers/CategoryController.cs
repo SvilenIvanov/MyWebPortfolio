@@ -20,18 +20,6 @@ namespace MyWebPortfolio.Controllers {
             return View();
         }
 
-        public IActionResult Edit(int? id) {
-            if(id == null || id == 0) {
-                return NotFound();
-            }
-            Category? category = _db.Categories.Find(id);
-            if(category == null) {
-                return NotFound();
-            }
-
-            return View(category);
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Category category) { //POST
@@ -39,7 +27,6 @@ namespace MyWebPortfolio.Controllers {
             if(category.Name == category.DisplayOrder.ToString()) {
 
                 ModelState.AddModelError("NameOrderMatchingError", "The display order can't exactly match the name.");
-                //return View(category);
             }
             if (ModelState.IsValid) {
                 try {
@@ -54,6 +41,25 @@ namespace MyWebPortfolio.Controllers {
             return View(category);
         }
 
+
+        public IActionResult Edit() { //GET
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int? id) { //POST
+            if(id == null || id == 0) {
+                return NotFound();
+            }
+            Category? category = _db.Categories.Find(id);
+
+            if(category == null) {
+                return NotFound();
+            }
+            return View(category);
+
+        }
 
     }
 }
