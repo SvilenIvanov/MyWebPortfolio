@@ -43,8 +43,6 @@ namespace MyWebPortfolio.Controllers {
 
 
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Edit(int? id) { //POST
             if(id == null || id == 0) {
                 return NotFound();
@@ -57,6 +55,8 @@ namespace MyWebPortfolio.Controllers {
             return View(category);
 
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit(Category category) { //POST
 
             if (category.Name == category.DisplayOrder.ToString()) {
