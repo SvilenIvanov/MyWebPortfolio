@@ -16,13 +16,13 @@ namespace MyWebPortfolio.Controllers {
             IEnumerable<Category> categories = _db.Categories;
             return View(categories);
         }
-        public IActionResult Create() { //GET
+        public IActionResult Create() {
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Category category) { //POST
+        public IActionResult Create(Category category) {
 
             if(category.Name == category.DisplayOrder.ToString()) {
 
@@ -43,7 +43,7 @@ namespace MyWebPortfolio.Controllers {
 
 
 
-        public IActionResult Edit(int? id) { //POST
+        public IActionResult Edit(int? id) {
             if(id == null || id == 0) {
                 return NotFound();
             }
@@ -57,7 +57,7 @@ namespace MyWebPortfolio.Controllers {
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Category category) { //POST
+        public IActionResult Edit(Category category) {
 
             if (category.Name == category.DisplayOrder.ToString()) {
 
@@ -66,6 +66,7 @@ namespace MyWebPortfolio.Controllers {
             if (ModelState.IsValid) {
                 try {
                     _db.Categories.Update(category);
+                    
                     _db.SaveChanges();
                 }
                 catch (Exception ex) {
@@ -77,5 +78,40 @@ namespace MyWebPortfolio.Controllers {
             return View(category);
         }
 
+        public IActionResult Delete(int? id) { //get
+            if (id == null || id == 0) {
+                return NotFound();
+            }
+            Category? category = _db.Categories.Find(id);
+
+            if (category == null) {
+                return NotFound();
+            }
+            return View(category);
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeletePOST(int? id) { //post
+            if (id == null || id == 0) {
+                return NotFound();
+            }
+            Category? category = _db.Categories.Find(id);
+
+            if (category == null) {
+                return NotFound();
+            }
+            try {
+                _db.Categories.Remove(category);
+                _db.SaveChanges();
+            }
+            catch (Exception ex) {
+                Console.WriteLine(String.Format("Could not delete category {0} from database. {1}",
+                    category, ex.Message));
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }
