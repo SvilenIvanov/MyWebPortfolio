@@ -32,7 +32,7 @@ namespace MyWebPortfolio.Controllers {
                 try {
                     _db.Categories.Add(category);
                     _db.SaveChanges();
-                    TempData["Success"] = this  + " was added successfully";
+                    TempData["Success"] = "Category was added successfully";
                 } catch(Exception ex) {
                     Console.WriteLine(String.Format("Could not add category {0} to database. {1}", 
                         category, ex.Message));
@@ -68,7 +68,7 @@ namespace MyWebPortfolio.Controllers {
                     _db.Categories.Update(category);
                     
                     _db.SaveChanges();
-                    TempData["Success"] = this + " was updated successfully";
+                    TempData["Success"] = "Category was updated successfully";
                 }
                 catch (Exception ex) {
                     Console.WriteLine(String.Format("Could not update category {0} to database. {1}",
@@ -107,7 +107,7 @@ namespace MyWebPortfolio.Controllers {
             try {
                 _db.Categories.Remove(category);
                 _db.SaveChanges();
-                TempData["Success"] = this + " was deleted successfully";
+                TempData["Success"] = "Category was deleted successfully";
             }
             catch (Exception ex) {
                 Console.WriteLine(String.Format("Could not delete category {0} from database. {1}",
