@@ -32,16 +32,16 @@ namespace MyWebPortfolio.Controllers {
                 try {
                     _db.Categories.Add(category);
                     _db.SaveChanges();
+                    TempData["Success"] = this  + " was added successfully";
                 } catch(Exception ex) {
                     Console.WriteLine(String.Format("Could not add category {0} to database. {1}", 
                         category, ex.Message));
+                    TempData["Unsuccessful"] = "Category could not be added to database because:" + ex.Message;
                 }
                 return RedirectToAction("Index");
             }
             return View(category);
         }
-
-
 
         public IActionResult Edit(int? id) {
             if(id == null || id == 0) {
@@ -68,10 +68,12 @@ namespace MyWebPortfolio.Controllers {
                     _db.Categories.Update(category);
                     
                     _db.SaveChanges();
+                    TempData["Success"] = this + " was updated successfully";
                 }
                 catch (Exception ex) {
                     Console.WriteLine(String.Format("Could not update category {0} to database. {1}",
                         category, ex.Message));
+                    TempData["Unsuccessful"] = "Category could not be updated to database because:" + ex.Message;
                 }
                 return RedirectToAction("Index");
             }
@@ -105,10 +107,12 @@ namespace MyWebPortfolio.Controllers {
             try {
                 _db.Categories.Remove(category);
                 _db.SaveChanges();
+                TempData["Success"] = this + " was deleted successfully";
             }
             catch (Exception ex) {
                 Console.WriteLine(String.Format("Could not delete category {0} from database. {1}",
                     category, ex.Message));
+                TempData["Unsuccessful"] = "Category could not be deleted to database because:" + ex.Message;
             }
 
             return RedirectToAction("Index");
