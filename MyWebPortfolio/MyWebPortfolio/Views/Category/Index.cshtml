@@ -4,6 +4,14 @@
 }
 
 
+@if(TempData["Success"] != null){
+    <h8 class="alert-info bg-opacity-75">@TempData["Success"]</h8>
+}
+@if(TempData["Unsuccessful"] != null){
+    <h5 class="alert-warning">@TempData["Unsuccessful"]</h5>
+
+}
+
 <div class=" container p-3">
 
     <div class="row pt-4">
