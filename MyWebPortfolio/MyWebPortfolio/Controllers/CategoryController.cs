@@ -1,6 +1,7 @@
-﻿using MyWebPortfolio.Data;
+﻿
 
 using Microsoft.AspNetCore.Mvc;
+using MyWebPortfolio.DataAccess.Data;
 using MyWebPortfolio.Models;
 
 namespace MyWebPortfolio.Controllers {

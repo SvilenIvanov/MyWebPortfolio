@@ -3661,6 +3661,32 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "MyWebPortfolio.DataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.0",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0",
+          "MyWebPortfolio.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MyWebPortfolio.DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyWebPortfolio.DataAccess.dll": {}
+        }
+      },
+      "MyWebPortfolio.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/MyWebPortfolio.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyWebPortfolio.Models.dll": {}
+        }
       }
     }
   },
@@ -10425,6 +10451,16 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "MyWebPortfolio.DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../MyWebPortfolio.DataAccess/MyWebPortfolio.DataAccess.csproj",
+      "msbuildProject": "../MyWebPortfolio.DataAccess/MyWebPortfolio.DataAccess.csproj"
+    },
+    "MyWebPortfolio.Models/1.0.0": {
+      "type": "project",
+      "path": "../MyWebPortfolio.Models/MyWebPortfolio.Models.csproj",
+      "msbuildProject": "../MyWebPortfolio.Models/MyWebPortfolio.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -10432,7 +10468,8 @@
       "Microsoft.EntityFrameworkCore >= 7.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.0",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.10"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.10",
+      "MyWebPortfolio.DataAccess >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -10467,7 +10504,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio.DataAccess\\MyWebPortfolio.DataAccess.csproj": {
+              "projectPath": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio.DataAccess\\MyWebPortfolio.DataAccess.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

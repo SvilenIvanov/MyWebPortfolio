@@ -281,3 +281,7 @@ C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\System
 C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\System.Text.Json.dll
 C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\MyWebPortfolio.DataAccess.dll
+C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\MyWebPortfolio.Models.dll
+C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\MyWebPortfolio.DataAccess.pdb
+C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\MyWebPortfolio.Models.pdb
