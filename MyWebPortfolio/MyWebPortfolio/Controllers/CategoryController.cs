@@ -9,14 +9,14 @@ using MyWebPortfolio.Models;
 namespace MyWebPortfolio.Controllers {
     public class CategoryController : Controller {
 
-        private readonly ICategoryRepository _db;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CategoryController(ICategoryRepository db) {
-            _db = db;
+        public CategoryController(IUnitOfWork unitOfWork) {
+            _unitOfWork = unitOfWork;
         }
 
         public IActionResult Index() {
-            IEnumerable<Category> categories = _db.GetAll();
+            IEnumerable<Category> categories = _unitOfWork.Category.GetAll();
             return View(categories);
         }
         public IActionResult Create() {
@@ -33,8 +33,8 @@ namespace MyWebPortfolio.Controllers {
             }
             if (ModelState.IsValid) {
                 try {
-                    _db.Add(category);
-                    _db.Save();
+                    _unitOfWork.Category.Add(category);
+                    _unitOfWork.Save();
                     TempData["Success"] = "Category was added successfully";
                 } catch(Exception ex) {
                     Console.WriteLine(String.Format("Could not add category {0} to database. {1}", 
@@ -50,7 +50,7 @@ namespace MyWebPortfolio.Controllers {
             if(id == null || id == 0) {
                 return NotFound();
             }
-            Category? category = _db.GetFirstOrDefault(item => item.Id == id);
+            Category? category = _unitOfWork.Category.GetFirstOrDefault(item => item.Id == id);
 
             if(category == null) {
                 return NotFound();
@@ -68,9 +68,9 @@ namespace MyWebPortfolio.Controllers {
             }
             if (ModelState.IsValid) {
                 try {
-                    _db.Update(category);
+                    _unitOfWork.Category.Update(category);
                     
-                    _db.Save();
+                    _unitOfWork.Save();
                     TempData["Success"] = "Category was updated successfully";
                 }
                 catch (Exception ex) {
@@ -87,7 +87,7 @@ namespace MyWebPortfolio.Controllers {
             if (id == null || id == 0) {
                 return NotFound();
             }
-            Category? category = _db.GetFirstOrDefault(item => item.Id == id);
+            Category? category = _unitOfWork.Category.GetFirstOrDefault(item => item.Id == id);
 
             if (category == null) {
                 return NotFound();
@@ -102,14 +102,14 @@ namespace MyWebPortfolio.Controllers {
             if (id == null || id == 0) {
                 return NotFound();
             }
-            Category? category = _db.GetFirstOrDefault(item => item.Id == id);
+            Category? category = _unitOfWork.Category.GetFirstOrDefault(item => item.Id == id);
 
             if (category == null) {
                 return NotFound();
             }
             try {
-                _db.Remove(category);
-                _db.Save();
+                _unitOfWork.Category.Remove(category);
+                _unitOfWork.Save();
                 TempData["Success"] = "Category was deleted successfully";
             }
             catch (Exception ex) {
