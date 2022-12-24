@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MyWebPortfolio.DataAccess.Data;
+﻿using MyWebPortfolio.DataAccess.Data;
 using MyWebPortfolio.DataAccess.Repository.IRepository;
 using System;
 using System.Collections.Generic;
@@ -9,13 +8,14 @@ using System.Threading.Tasks;
 
 namespace MyWebPortfolio.DataAccess.Repository {
     public class UnitOfWork : IUnitOfWork {
-        public ICategoryRepository Category {get; private set;}
         private readonly AppdDbContext _db;
 
         public UnitOfWork(AppdDbContext db) {
             _db = db;
             Category = new CategoryRepository(_db);
         }
+        public ICategoryRepository Category { get; private set; }
+
         public void Save() {
             _db.SaveChanges();
         }

@@ -6,8 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MyWebPortfolio.DataAccess.Repository.IRepository {
-    public interface ICategoryRepository : IRepository<Category>{
-
-        public void Update(Category category);
+    public interface ICategoryRepository : IRepository<Category> {
+        void Update(Category obj);
     }
 }
