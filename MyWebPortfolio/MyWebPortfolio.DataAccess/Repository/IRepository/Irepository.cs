@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MyWebPortfolio.DataAccess.Repository.IRepository {
-    public interface Irepository<T> where T : class {
+    public interface IRepository<T> where T : class {
 
         public void Add(T entity);
         public void Remove(T entity);
