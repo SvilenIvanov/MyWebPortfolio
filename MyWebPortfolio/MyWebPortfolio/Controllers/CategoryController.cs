@@ -2,19 +2,21 @@
 
 using Microsoft.AspNetCore.Mvc;
 using MyWebPortfolio.DataAccess.Data;
+using MyWebPortfolio.DataAccess.Repository;
+using MyWebPortfolio.DataAccess.Repository.IRepository;
 using MyWebPortfolio.Models;
 
 namespace MyWebPortfolio.Controllers {
     public class CategoryController : Controller {
 
-        private readonly AppdDbContext _db;
+        private readonly ICategoryRepository _db;
 
-        public CategoryController(AppdDbContext db) {
+        public CategoryController(ICategoryRepository db) {
             _db = db;
         }
 
         public IActionResult Index() {
-            IEnumerable<Category> categories = _db.Categories;
+            IEnumerable<Category> categories = _db.GetAll();
             return View(categories);
         }
         public IActionResult Create() {
@@ -31,8 +33,8 @@ namespace MyWebPortfolio.Controllers {
             }
             if (ModelState.IsValid) {
                 try {
-                    _db.Categories.Add(category);
-                    _db.SaveChanges();
+                    _db.Add(category);
+                    _db.Save();
                     TempData["Success"] = "Category was added successfully";
                 } catch(Exception ex) {
                     Console.WriteLine(String.Format("Could not add category {0} to database. {1}", 
@@ -48,7 +50,7 @@ namespace MyWebPortfolio.Controllers {
             if(id == null || id == 0) {
                 return NotFound();
             }
-            Category? category = _db.Categories.Find(id);
+            Category? category = _db.GetFirstOrDefault(item => item.Id == id);
 
             if(category == null) {
                 return NotFound();
@@ -66,9 +68,9 @@ namespace MyWebPortfolio.Controllers {
             }
             if (ModelState.IsValid) {
                 try {
-                    _db.Categories.Update(category);
+                    _db.Update(category);
                     
-                    _db.SaveChanges();
+                    _db.Save();
                     TempData["Success"] = "Category was updated successfully";
                 }
                 catch (Exception ex) {
@@ -85,7 +87,7 @@ namespace MyWebPortfolio.Controllers {
             if (id == null || id == 0) {
                 return NotFound();
             }
-            Category? category = _db.Categories.Find(id);
+            Category? category = _db.GetFirstOrDefault(item => item.Id == id);
 
             if (category == null) {
                 return NotFound();
@@ -100,14 +102,14 @@ namespace MyWebPortfolio.Controllers {
             if (id == null || id == 0) {
                 return NotFound();
             }
-            Category? category = _db.Categories.Find(id);
+            Category? category = _db.GetFirstOrDefault(item => item.Id == id);
 
             if (category == null) {
                 return NotFound();
             }
             try {
-                _db.Categories.Remove(category);
-                _db.SaveChanges();
+                _db.Remove(category);
+                _db.Save();
                 TempData["Success"] = "Category was deleted successfully";
             }
             catch (Exception ex) {

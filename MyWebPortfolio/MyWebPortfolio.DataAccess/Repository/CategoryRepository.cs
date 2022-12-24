@@ -13,13 +13,14 @@ namespace MyWebPortfolio.DataAccess.Repository {
         private readonly AppdDbContext _db;
         public CategoryRepository(AppdDbContext db) : base(db) {
             _db = db;
-            
+
         }
         public void Save() {
             _db.SaveChanges();
         }
 
         public void Update(Category category) {
+            
             _db.Update(category);
         }
     }
