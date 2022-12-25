@@ -6,7 +6,7 @@ using MyWebPortfolio.DataAccess.Repository;
 using MyWebPortfolio.DataAccess.Repository.IRepository;
 using MyWebPortfolio.Models;
 
-namespace MyWebPortfolio.Areas.Admin.Controllers
+namespace MyWebPortfolio.Areas.Admin.Controllers;
 
 [Area("Admin")]
 

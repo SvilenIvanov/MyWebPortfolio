@@ -3,7 +3,7 @@ using MyWebPortfolio.Models;
 using System.Diagnostics;
 
 namespace MyWebPortfolio.Areas.Customer.Controllers;
-[Area("Admin")]
+[Area("Customer")]
 
 public class HomeController : Controller
 {
