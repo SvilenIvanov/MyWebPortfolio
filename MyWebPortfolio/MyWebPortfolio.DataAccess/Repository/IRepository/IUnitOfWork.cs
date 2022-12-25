@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace MyWebPortfolio.DataAccess.Repository.IRepository {
     public interface IUnitOfWork {
         ICategoryRepository Category { get; }
+        ICoverRepository Cover { get; }
 
         void Save();
     }

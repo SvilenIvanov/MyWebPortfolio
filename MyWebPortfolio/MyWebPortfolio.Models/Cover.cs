@@ -7,6 +7,8 @@ namespace MyWebPortfolio.Models {
         [Key]
         public int Id { get; set; }
         [Required]
+        [DisplayName("Cover Type")]
+        [MaxLength(50)]
         public string Name { get; set; } = "";
 
 
