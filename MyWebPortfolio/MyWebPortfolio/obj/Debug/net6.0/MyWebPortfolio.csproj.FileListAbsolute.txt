@@ -285,3 +285,4 @@ C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\MyWebP
 C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\MyWebPortfolio.Models.dll
 C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\MyWebPortfolio.DataAccess.pdb
 C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\MyWebPortfolio.Models.pdb
+C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\System.Reflection.MetadataLoadContext.dll
