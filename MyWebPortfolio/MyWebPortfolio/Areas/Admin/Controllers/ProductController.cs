@@ -1,6 +1,7 @@
 ﻿
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using MyWebPortfolio.DataAccess.Data;
 using MyWebPortfolio.DataAccess.Repository;
 using MyWebPortfolio.DataAccess.Repository.IRepository;
@@ -10,28 +11,35 @@ namespace MyWebPortfolio.Areas.Admin.Controllers;
 
 [Area("Admin")]
 
-public class ProductController : Controller
-{
+public class ProductController : Controller {
 
     private readonly IUnitOfWork _unitOfWork;
 
-    public ProductController(IUnitOfWork unitOfWork)
-    {
+    public ProductController(IUnitOfWork unitOfWork) {
         _unitOfWork = unitOfWork;
     }
 
-    public IActionResult Index()
-    {
+    public IActionResult Index() {
         IEnumerable<Product> categories = _unitOfWork.Product.GetAll();
         return View(categories);
     }
 
 
     //GET
-    public IActionResult Upsert(int? id)
-    {
+    public IActionResult Upsert(int? id) {
 
         Product product = new Product();
+        IEnumerable<SelectListItem> CategoryList = _unitOfWork.Category.GetAll().Select(
+            category => new SelectListItem {
+                Text = category.Name,
+                Value = category.Id.ToString()
+            });
+        IEnumerable<SelectListItem> CoverList = _unitOfWork.Cover.GetAll().Select(
+            cover => new SelectListItem {
+                Text = cover.Name,
+                Value = cover.Id.ToString()
+            });
+
         if (id == null || id == 0) {
             return View(product);
         }
@@ -44,19 +52,15 @@ public class ProductController : Controller
     [HttpPost]
     [ValidateAntiForgeryToken]
     //Post
-    public IActionResult Upsert(Product product)
-    {
-        if (ModelState.IsValid)
-        {
-            try
-            {
+    public IActionResult Upsert(Product product) {
+        if (ModelState.IsValid) {
+            try {
                 _unitOfWork.Product.Update(product);
 
                 _unitOfWork.Save();
                 TempData["Success"] = "Product was updated successfully";
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Console.WriteLine(string.Format("Could not update product {0} to database. {1}",
                     product, ex.Message));
                 TempData["Unsuccessful"] = "Product could not be updated to database because:" + ex.Message;
@@ -66,16 +70,13 @@ public class ProductController : Controller
         return View(product);
     }
 
-    public IActionResult Delete(int? id)
-    { //get
-        if (id == null || id == 0)
-        {
+    public IActionResult Delete(int? id) { //get
+        if (id == null || id == 0) {
             return NotFound();
         }
         Product? product = _unitOfWork.Product.GetFirstOrDefault(item => item.Id == id);
 
-        if (product == null)
-        {
+        if (product == null) {
             return NotFound();
         }
         return View(product);
@@ -84,26 +85,21 @@ public class ProductController : Controller
 
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public IActionResult DeletePOST(int? id)
-    { //post
-        if (id == null || id == 0)
-        {
+    public IActionResult DeletePOST(int? id) { //post
+        if (id == null || id == 0) {
             return NotFound();
         }
         Product? product = _unitOfWork.Product.GetFirstOrDefault(item => item.Id == id);
 
-        if (product == null)
-        {
+        if (product == null) {
             return NotFound();
         }
-        try
-        {
+        try {
             _unitOfWork.Product.Remove(product);
             _unitOfWork.Save();
             TempData["Success"] = "Product was deleted successfully";
         }
-        catch (Exception ex)
-        {
+        catch (Exception ex) {
             Console.WriteLine(string.Format("Could not delete product {0} from database. {1}",
                 product, ex.Message));
             TempData["Unsuccessful"] = "Product could not be deleted to database because:" + ex.Message;
