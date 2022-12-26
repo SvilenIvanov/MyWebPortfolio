@@ -25,53 +25,26 @@ public class ProductController : Controller
         IEnumerable<Product> categories = _unitOfWork.Product.GetAll();
         return View(categories);
     }
-    public IActionResult Create()
-    {
-        return View();
-    }
 
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public IActionResult Create(Product product)
+
+    //GET
+    public IActionResult Upsert(int? id)
     {
 
-        if (ModelState.IsValid)
-        {
-            try
-            {
-                _unitOfWork.Product.Add(product);
-                _unitOfWork.Save();
-                TempData["Success"] = "Product was added successfully";
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(string.Format("Could not add product {0} to database. {1}",
-                    product, ex.Message));
-                TempData["Unsuccessful"] = "Product could not be added to database because:" + ex.Message;
-            }
-            return RedirectToAction("Index");
+        Product product = new Product();
+        if (id == null || id == 0) {
+            return View(product);
         }
-        return View(product);
-    }
+        else {
 
-    public IActionResult Edit(int? id)
-    {
-        if (id == null || id == 0)
-        {
-            return NotFound();
-        }
-        Product? product = _unitOfWork.Product.GetFirstOrDefault(item => item.Id == id);
-
-        if (product == null)
-        {
-            return NotFound();
         }
         return View(product);
 
     }
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Edit(Product product)
+    //Post
+    public IActionResult Upsert(Product product)
     {
         if (ModelState.IsValid)
         {
