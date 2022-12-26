@@ -41,6 +41,7 @@ public class ProductController : Controller {
             });
 
         if (id == null || id == 0) {
+            ViewBag.CategoryList = CategoryList;
             return View(product);
         }
         else {
