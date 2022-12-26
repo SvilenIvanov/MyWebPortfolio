@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MyWebPortfolio.DataAccess.Repository {
-    internal class CoverRepository : Repository<Cover>, ICoverRepository {
+    public class CoverRepository : Repository<Cover>, ICoverRepository {
 
         private readonly AppdDbContext _db;
         public CoverRepository(AppdDbContext db) : base(db) {
