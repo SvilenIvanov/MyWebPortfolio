@@ -5,11 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MyWebPortfolio.DataAccess.Repository.IRepository {
-    public interface IUnitOfWork {
-        ICategoryRepository Category { get; }
-        ICoverRepository Cover { get; }
-        IProductRepository Product { get; }
-
-        void Save();
+    internal interface IProductRepository {
     }
 }
