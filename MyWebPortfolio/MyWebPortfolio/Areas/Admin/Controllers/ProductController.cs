@@ -26,7 +26,7 @@ public class ProductController : Controller {
 
 
     //GET
-    public IActionResult Upsert(int? id) {
+    public IActionResult Upsert(int? id)    {
 
         Product product = new Product();
         IEnumerable<SelectListItem> CategoryList = _unitOfWork.Category.GetAll().Select(
@@ -42,6 +42,7 @@ public class ProductController : Controller {
 
         if (id == null || id == 0) {
             ViewBag.CategoryList = CategoryList;
+            ViewData["CoverList"] = CoverList;
             return View(product);
         }
         else {
