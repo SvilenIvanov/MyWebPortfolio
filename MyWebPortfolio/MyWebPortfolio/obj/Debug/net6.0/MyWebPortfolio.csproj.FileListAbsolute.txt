@@ -286,3 +286,6 @@ C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\MyWebP
 C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\MyWebPortfolio.DataAccess.pdb
 C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\MyWebPortfolio.Models.pdb
 C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\System.Reflection.MetadataLoadContext.dll
+C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\obj\Debug\net6.0\MyWebPortfolio.MvcApplicationPartsAssemblyInfo.cs

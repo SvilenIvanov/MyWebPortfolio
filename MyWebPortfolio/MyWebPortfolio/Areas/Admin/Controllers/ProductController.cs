@@ -6,6 +6,7 @@ using MyWebPortfolio.DataAccess.Data;
 using MyWebPortfolio.DataAccess.Repository;
 using MyWebPortfolio.DataAccess.Repository.IRepository;
 using MyWebPortfolio.Models;
+using MyWebPortfolio.Models.ViewModels;
 
 namespace MyWebPortfolio.Areas.Admin.Controllers;
 
@@ -28,7 +29,7 @@ public class ProductController : Controller {
     //GET
     public IActionResult Upsert(int? id)    {
 
-        Product product = new Product();
+        //Product product = new Product(); // should return empty product for blank (empty) data
         IEnumerable<SelectListItem> CategoryList = _unitOfWork.Category.GetAll().Select(
             category => new SelectListItem {
                 Text = category.Name,
@@ -40,15 +41,17 @@ public class ProductController : Controller {
                 Value = cover.Id.ToString()
             });
 
+        ProductVM productVM = new ProductVM(new Product(), CategoryList, CoverList);
+
         if (id == null || id == 0) {
-            ViewBag.CategoryList = CategoryList;
-            ViewData["CoverList"] = CoverList;
-            return View(product);
+            //ViewBag.CategoryList = productVM.CategoryList;
+            //ViewData["CoverList"] = productVM.CoverList;
+            return View(productVM);
         }
         else {
 
         }
-        return View(product);
+        return View(productVM);
 
     }
     [HttpPost]
