@@ -5,7 +5,14 @@
 
     <div class="border p-3 mt-4 row">
         <div class="row pb-2">
-            <h2 class="text-primary">Update Product</h2>
+            <h2 class="text-primary">
+                @if(Model.product.Id == 0){
+                    @:Create
+                } else {
+                    @:Update
+                }
+                Product
+            </h2>
             <hr />
         </div>
 
@@ -52,7 +59,7 @@
         </div>
         <div class="mb-3">
             <label asp-for="product.ImageURL"></label>
-            <input type="file" class="form-control" />
+            <input type="file" id="uploadBox" class="form-control" />
         </div>
         <div class="mb-3 col-6">
             <label asp-for="product.CategoryID"></label>
@@ -69,7 +76,13 @@
             <span asp-validation-for="product.CoverID" class="text-danger"></span>
         </div>
         <div class="col-12">
-            <button type="submit" class="btn btn-primary" style="width:15%">Update</button>
+            @if (Model.product.Id == 0) {
+                <button type="submit" onclick="return ValidateInput()" class="btn btn-primary" style="width:15%">Create</button>
+            }
+            else {
+                <button type="submit" class="btn btn-primary" style="width:15%">Update</button>
+            }
+
             <a asp-controller="Product" asp-action="Index" class="btn btn-secondary" style="width:15%">
                 Back to list
             </a>
@@ -81,4 +94,18 @@
 
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        function ValidateInput(){
+            if (document.getElementById("uploadBox").value == "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please upload an image!'
+                })
+                return false;
+            }
+            return true;
+        }
+
+    </script>
 }
