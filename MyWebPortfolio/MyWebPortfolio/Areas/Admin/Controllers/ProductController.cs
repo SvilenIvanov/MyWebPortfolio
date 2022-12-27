@@ -57,10 +57,10 @@ public class ProductController : Controller {
     [HttpPost]
     [ValidateAntiForgeryToken]
     //Post
-    public IActionResult Upsert(Product product) {
+    public IActionResult Upsert(ProductVM product, IFormFile fileToUpload) {
         if (ModelState.IsValid) {
             try {
-                _unitOfWork.Product.Update(product);
+                //_unitOfWork.Product.Update(product);
 
                 _unitOfWork.Save();
                 TempData["Success"] = "Product was updated successfully";
