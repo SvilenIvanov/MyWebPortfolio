@@ -15,20 +15,36 @@ namespace MyWebPortfolio.DataAccess.Repository {
 
         public Repository(AppdDbContext db) {
             _db = db;
+            //_db.Products.Include(u => u.Category).Include(u => u.Cover); //Populate it with the category model
             this.dbSet = _db.Set<T>();
         }
         public void Add(T entity) {
             dbSet.Add(entity);
         }
-        public IEnumerable<T> GetAll() {
+        public IEnumerable<T> GetAll(string? includeProperties = null) {
             IQueryable<T> query = dbSet;
+            if (includeProperties != null) {
+                foreach (var property in
+                    includeProperties.
+                    Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)) {
+                    query = query.Include(property);
+                }
+            }
             return query.ToList();
         }
 
-        public T GetFirstOrDefault(Expression<Func<T, bool>> filter) {
+        //incluceProperties - "Category,CoverType"
+        public T GetFirstOrDefault(Expression<Func<T, bool>> filter, string? includeProperties = null) {
             IQueryable<T> query = dbSet;
 
             query = query.Where(filter);
+            if (includeProperties != null) {
+                foreach (var property in
+                    includeProperties.
+                    Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)) {
+                    query = query.Include(property);
+                }
+            }
             return query.FirstOrDefault();
         }
 

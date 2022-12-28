@@ -137,8 +137,8 @@ public class ProductController : Controller {
     #region API calls
     [HttpGet]
     public IActionResult GetAll() {
-        var productList = _unitOfWork.Product.GetAll();
-        return Json(new { data = productList });
+        var productList = _unitOfWork.Product.GetAll(includeProperties:"Category,Cover");
+        return Json(new { data = productList }); 
 
     }
 
