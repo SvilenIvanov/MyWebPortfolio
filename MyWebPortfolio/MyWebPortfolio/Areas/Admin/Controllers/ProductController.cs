@@ -96,43 +96,7 @@ public class ProductController : Controller {
         return View(obj);
     }
 
-    public IActionResult Delete(int? id) { //get
-        if (id == null || id == 0) {
-            return NotFound();
-        }
-        Product? product = _unitOfWork.Product.GetFirstOrDefault(item => item.Id == id);
 
-        if (product == null) {
-            return NotFound();
-        }
-        return View(product);
-
-    }
-
-    [HttpPost, ActionName("Delete")]
-    [ValidateAntiForgeryToken]
-    public IActionResult DeletePOST(int? id) { //post
-        if (id == null || id == 0) {
-            return NotFound();
-        }
-        Product? product = _unitOfWork.Product.GetFirstOrDefault(item => item.Id == id);
-
-        if (product == null) {
-            return NotFound();
-        }
-        try {
-            _unitOfWork.Product.Remove(product);
-            _unitOfWork.Save();
-            TempData["Success"] = "Product was deleted successfully";
-        }
-        catch (Exception ex) {
-            Console.WriteLine(string.Format("Could not delete product {0} from database. {1}",
-                product, ex.Message));
-            TempData["Unsuccessful"] = "Product could not be deleted to database because:" + ex.Message;
-        }
-
-        return RedirectToAction("Index");
-    }
 
     #region API calls
     [HttpGet]
@@ -141,7 +105,24 @@ public class ProductController : Controller {
         return Json(new { data = productList }); 
 
     }
+    //POST
+    [HttpDelete]
+    public IActionResult Delete(int? id) {
+        var obj = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == id);
+        if (obj == null) {
+            return Json(new { success = false, message = "Error while deleting" });
+        }
 
+        var oldImagePath = Path.Combine(_hostEnvironment.WebRootPath, obj.ImageURL.TrimStart('\\'));
+        if (System.IO.File.Exists(oldImagePath)) {
+            System.IO.File.Delete(oldImagePath);
+        }
+
+        _unitOfWork.Product.Remove(obj);
+        _unitOfWork.Save();
+        return Json(new { success = true, message = "Delete Successful" });
+
+    }
     #endregion
 }
 

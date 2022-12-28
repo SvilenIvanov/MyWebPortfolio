@@ -33,7 +33,7 @@ namespace MyWebPortfolio.DataAccess.Repository {
             return query.ToList();
         }
 
-        //incluceProperties - "Category,CoverType"
+        //includeProperties - "Category,CoverType"
         public T GetFirstOrDefault(Expression<Func<T, bool>> filter, string? includeProperties = null) {
             IQueryable<T> query = dbSet;
 
