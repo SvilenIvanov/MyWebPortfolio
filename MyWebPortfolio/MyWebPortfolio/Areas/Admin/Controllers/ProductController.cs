@@ -134,5 +134,15 @@ public class ProductController : Controller {
 
         return RedirectToAction("Index");
     }
+
+    #region API calls
+    [HttpGet]
+    public IActionResult GetAll() {
+        var productList = _unitOfWork.Product.GetAll();
+        return Json(new { data = productList });
+
+    }
+
+    #endregion
 }
 
