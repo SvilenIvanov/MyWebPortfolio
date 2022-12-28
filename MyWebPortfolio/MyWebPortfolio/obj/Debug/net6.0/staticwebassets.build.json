@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "owofM80NCPJioDWgBFHrY6lSFV8aAp8txnyfwHXSgSQ=",
+  "Hash": "MpTdMpKWRhQGBhxOnDR1sTDkK98VgQJdpCvuiz3QLag=",
   "Source": "MyWebPortfolio",
   "BasePath": "_content/MyWebPortfolio",
   "Mode": "Default",
@@ -134,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\products\\c4b718e0-9839-421c-931f-4c85f06f85de.jfif"
+    },
+    {
+      "Identity": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\js\\product.js",
+      "SourceId": "MyWebPortfolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\",
+      "BasePath": "_content/MyWebPortfolio",
+      "RelativePath": "js/product.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\product.js"
     },
     {
       "Identity": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\js\\site.js",

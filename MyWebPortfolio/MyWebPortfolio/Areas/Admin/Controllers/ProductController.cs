@@ -24,8 +24,7 @@ public class ProductController : Controller {
     }
 
     public IActionResult Index() {
-        IEnumerable<Cover> objCovers = _unitOfWork.Cover.GetAll();
-        return View(objCovers);
+        return View();
     }
 
 
