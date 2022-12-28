@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -30,15 +31,18 @@ namespace MyWebPortfolio.Models {
         [Required]
         [Range(1, 10000)]
         public double Price100 { get; set; }
-
+        [ValidateNever]
         public string ImageURL { get; set; }
         [Required]
         public int CategoryID { get; set; }
         [ForeignKey("CategoryID")]
+        [ValidateNever]
         public Category Category { get; set; }
         [Required]
         public int CoverID { get; set; }
         [ForeignKey("CoverID")]
+
+        [ValidateNever]
         public Cover Cover { get; set; }
 
 

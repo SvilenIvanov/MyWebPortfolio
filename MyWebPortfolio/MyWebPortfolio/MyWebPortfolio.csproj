@@ -20,4 +20,8 @@
     <ProjectReference Include="..\MyWebPortfolio.DataAccess\MyWebPortfolio.DataAccess.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\products\" />
+  </ItemGroup>
+
 </Project>

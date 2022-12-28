@@ -7,6 +7,7 @@ using MyWebPortfolio.DataAccess.Repository;
 using MyWebPortfolio.DataAccess.Repository.IRepository;
 using MyWebPortfolio.Models;
 using MyWebPortfolio.Models.ViewModels;
+using NuGet.Versioning;
 
 namespace MyWebPortfolio.Areas.Admin.Controllers;
 
@@ -15,64 +16,85 @@ namespace MyWebPortfolio.Areas.Admin.Controllers;
 public class ProductController : Controller {
 
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IWebHostEnvironment _hostEnvironment;
 
-    public ProductController(IUnitOfWork unitOfWork) {
+    public ProductController(IUnitOfWork unitOfWork, IWebHostEnvironment hostEnvironment) {
         _unitOfWork = unitOfWork;
+        _hostEnvironment = hostEnvironment;
     }
 
     public IActionResult Index() {
-        IEnumerable<Product> categories = _unitOfWork.Product.GetAll();
-        return View(categories);
+        IEnumerable<Cover> objCovers = _unitOfWork.Cover.GetAll();
+        return View(objCovers);
     }
 
 
     //GET
-    public IActionResult Upsert(int? id)    {
-
-        //Product product = new Product(); // should return empty product for blank (empty) data
-        IEnumerable<SelectListItem> CategoryList = _unitOfWork.Category.GetAll().Select(
-            category => new SelectListItem {
-                Text = category.Name,
-                Value = category.Id.ToString()
-            });
-        IEnumerable<SelectListItem> CoverList = _unitOfWork.Cover.GetAll().Select(
-            cover => new SelectListItem {
-                Text = cover.Name,
-                Value = cover.Id.ToString()
-            });
-
-        ProductVM productVM = new ProductVM(new Product(), CategoryList, CoverList);
+    public IActionResult Upsert(int? id) {
+        ProductVM productVM = new() {
+            Product = new(),
+            CategoryList = _unitOfWork.Category.GetAll().Select(i => new SelectListItem {
+                Text = i.Name,
+                Value = i.Id.ToString()
+            }),
+            CoverTypeList = _unitOfWork.Cover.GetAll().Select(i => new SelectListItem {
+                Text = i.Name,
+                Value = i.Id.ToString()
+            }),
+        };
 
         if (id == null || id == 0) {
-            //ViewBag.CategoryList = productVM.CategoryList;
-            //ViewData["CoverList"] = productVM.CoverList;
+            //create product
+            //ViewBag.CategoryList = CategoryList;
+            //ViewData["CoverTypeList"] = CoverTypeList;
             return View(productVM);
         }
         else {
+            productVM.Product = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == id);
+            return View(productVM);
 
+            //update product
         }
-        return View(productVM);
+
 
     }
+
+    //POST
     [HttpPost]
     [ValidateAntiForgeryToken]
-    //Post
-    public IActionResult Upsert(ProductVM product, IFormFile fileToUpload) {
-        if (ModelState.IsValid) {
-            try {
-                //_unitOfWork.Product.Update(product);
+    public IActionResult Upsert(ProductVM obj, IFormFile? file) {
 
-                _unitOfWork.Save();
-                TempData["Success"] = "Product was updated successfully";
+        if (ModelState.IsValid) {
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            if (file != null) {
+                string fileName = Guid.NewGuid().ToString();
+                var uploads = Path.Combine(wwwRootPath, @"images\products");
+                var extension = Path.GetExtension(file.FileName);
+
+                if (obj.Product.ImageURL != null) {
+                    var oldImagePath = Path.Combine(wwwRootPath, obj.Product.ImageURL.TrimStart('\\'));
+                    if (System.IO.File.Exists(oldImagePath)) {
+                        System.IO.File.Delete(oldImagePath);
+                    }
+                }
+
+                using (var fileStreams = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create)) {
+                    file.CopyTo(fileStreams);
+                }
+                obj.Product.ImageURL = @"\images\products\" + fileName + extension;
+
             }
-            catch (Exception ex) {
-                Console.WriteLine(string.Format("Could not update product {0} to database. {1}",
-                    product, ex.Message));
-                TempData["Unsuccessful"] = "Product could not be updated to database because:" + ex.Message;
+            if (obj.Product.Id == 0) {
+                _unitOfWork.Product.Add(obj.Product);
             }
+            else {
+                _unitOfWork.Product.Update(obj.Product);
+            }
+            _unitOfWork.Save();
+            TempData["success"] = "Product created successfully";
             return RedirectToAction("Index");
         }
-        return View(product);
+        return View(obj);
     }
 
     public IActionResult Delete(int? id) { //get
