@@ -24,6 +24,11 @@ public class HomeController : Controller
 
         return View(productsList);
     }
+    public IActionResult Details(int id) {
+        Product product = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == id, includeProperties: "Category,Cover");
+        ShoppingCart cartObj = new ShoppingCart(1, product);
+        return View(cartObj);
+    }
 
     public IActionResult Privacy()
     {
