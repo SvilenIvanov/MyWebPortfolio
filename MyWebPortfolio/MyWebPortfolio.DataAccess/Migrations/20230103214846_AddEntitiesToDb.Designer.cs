@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyWebPortfolio.DataAccess.Data;
 
@@ -11,9 +12,11 @@ using MyWebPortfolio.DataAccess.Data;
 namespace MyWebPortfolio.DataAccess.Migrations
 {
     [DbContext(typeof(AppdDbContext))]
-    partial class AppdDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230103214846_AddEntitiesToDb")]
+    partial class AddEntitiesToDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
