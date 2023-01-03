@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UxvF4Udp0pk0yUKq3Saa+QogWG6EaJoSdPfk/PdtWM0=",
+  "Hash": "HImfYUqqP2E5nv4M5ykJbUcUHD9nMerTQ6lI1qVe9Vw=",
   "Source": "MyWebPortfolio",
   "BasePath": "_content/MyWebPortfolio",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\images\\products\\115b6d66-a18e-4417-8255-f134b258084e.jfif",
+      "SourceId": "MyWebPortfolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\",
+      "BasePath": "_content/MyWebPortfolio",
+      "RelativePath": "images/products/115b6d66-a18e-4417-8255-f134b258084e.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\115b6d66-a18e-4417-8255-f134b258084e.jfif"
     },
     {
       "Identity": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\images\\products\\6a83ace5-9673-4a73-aa54-1cf1453ba97e.jfif",
