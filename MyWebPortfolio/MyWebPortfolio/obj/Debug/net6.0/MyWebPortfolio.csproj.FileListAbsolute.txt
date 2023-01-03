@@ -289,3 +289,10 @@ C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\System
 C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\obj\Debug\net6.0\MyWebPortfolio.MvcApplicationPartsAssemblyInfo.cs
+C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Projects\MyWebPortfolio\MyWebPortfolio\MyWebPortfolio\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll

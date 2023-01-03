@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using MyWebPortfolio.Models;
 
 namespace MyWebPortfolio.DataAccess.Data
 {
-    public class AppdDbContext : DbContext
+    public class AppdDbContext : IdentityDbContext
     {
         public AppdDbContext(DbContextOptions<AppdDbContext> options) : base(options)
         {
