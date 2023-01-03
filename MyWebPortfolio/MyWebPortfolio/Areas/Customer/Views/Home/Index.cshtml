@@ -1,34 +1,43 @@
 ﻿@model IEnumerable<MyWebPortfolio.Models.Product>
 
 <div class="row pb-3">
-    @foreach(var product in Model){
-        
+    @foreach (var product in Model) {
+
         <div class="col-lg-3 col-md-6">
             <div class="row p-2">
                 <div class="col-12 p-1" stystyle="border:1px solid #008cba; border-radius: 5px">
-                      <div>
-                          <img src="@product.ImageURL" class="card-img-top rounded">
-                          <div class="pl-1">
-                              <p class="card-title h5 text-primary">@product.Title</p>
-                              <p class="card-title text-secondary">@product.Author</p>
-                          </div>
-                        @if (product.ListPrice != product.Price100)
-                        {
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="@product.ImageURL" class="card-img-top rounded">
                             <div class="pl-1">
-                                <p>List price: <strike><b>$@product.ListPrice.ToString("0.00")</b></strike></p>
+                                <p class="card-title h5 text-primary">@product.Title</p>
+                                <p class="card-title text-secondary"><b>by @product.Author</b></p>
                             </div>
-                            <div class="pl-1">
-                                <p>As low as: <b>$@product.Price100</b></p>
+                            @if (product.ListPrice != product.Price100) {
+                                <div class="pl-1">
+                                    <p>List price: <strike><b>$@product.ListPrice.ToString("0.00")</b></strike></p>
+                                </div>
+                                <div class="pl-1">
+                                    <p>As low as: <b>$@product.Price100</b></p>
+                                </div>
+                            }
+                            else {
+                                <div class="pl-1">
+                                    <p>List price: <b>$@product.ListPrice.ToString("0.00")</b></p>
+                                </div>
+                            }
+                            <div>
+                                <a asp-action="Details" class="btn btn-primary form-control" asp-route-id="@product.Id">
+                                    Details
+                                </a>
                             </div>
-                        } else {
-                            <div class="pl-1">
-                                <p>List price: <b>$@product.ListPrice.ToString("0.00")</b></p>
-                            </div>
-                        }
+                        </div>
+
                     </div>
+
                 </div>
             </div>
         </div>
-        
+
     }
 </div>

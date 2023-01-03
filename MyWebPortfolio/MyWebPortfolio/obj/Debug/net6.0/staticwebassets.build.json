@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HImfYUqqP2E5nv4M5ykJbUcUHD9nMerTQ6lI1qVe9Vw=",
+  "Hash": "sAnUdISnCaguQXHkExOtlTBK5iU3aAMFfLX9pH24F4s=",
   "Source": "MyWebPortfolio",
   "BasePath": "_content/MyWebPortfolio",
   "Mode": "Default",
@@ -102,12 +102,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\images\\products\\115b6d66-a18e-4417-8255-f134b258084e.jfif",
+      "Identity": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\images\\products\\15356b28-1298-451f-a00d-582b33e0625e.jfif",
       "SourceId": "MyWebPortfolio",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\",
       "BasePath": "_content/MyWebPortfolio",
-      "RelativePath": "images/products/115b6d66-a18e-4417-8255-f134b258084e.jfif",
+      "RelativePath": "images/products/15356b28-1298-451f-a00d-582b33e0625e.jfif",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -116,7 +116,41 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\products\\115b6d66-a18e-4417-8255-f134b258084e.jfif"
+      "OriginalItemSpec": "wwwroot\\images\\products\\15356b28-1298-451f-a00d-582b33e0625e.jfif"
+    },
+    {
+      "Identity": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\images\\products\\24a4ff9e-39c0-4ebe-85ae-d7a049ca4207.jfif",
+      "SourceId": "MyWebPortfolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\",
+      "BasePath": "_content/MyWebPortfolio",
+      "RelativePath": "images/products/24a4ff9e-39c0-4ebe-85ae-d7a049ca4207.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\24a4ff9e-39c0-4ebe-85ae-d7a049ca4207.jfif"
+    },
+    {
+      "Identity": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\images\\products\\4f4d3aaf-449c-43d6-8d85-fdd5802b74aa.jfif",
+      "SourceId": "MyWebPortfolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\",
+      "BasePath": "_content/MyWebPortfolio",
+      "RelativePath": "images/products/4f4d3aaf-449c-43d6-8d85-fdd5802b74aa.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\4f4d3aaf-449c-43d6-8d85-fdd5802b74aa.jfif"
     },
     {
       "Identity": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\images\\products\\6a83ace5-9673-4a73-aa54-1cf1453ba97e.jfif",
@@ -219,23 +253,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\products\\cd50beac-d952-45cb-a197-e9e902b08e99.jfif"
-    },
-    {
-      "Identity": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\images\\products\\cf0be76e-4888-4a1f-a441-5d3faf2ffacc.jfif",
-      "SourceId": "MyWebPortfolio",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\",
-      "BasePath": "_content/MyWebPortfolio",
-      "RelativePath": "images/products/cf0be76e-4888-4a1f-a441-5d3faf2ffacc.jfif",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\products\\cf0be76e-4888-4a1f-a441-5d3faf2ffacc.jfif"
     },
     {
       "Identity": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\images\\products\\d6c383f1-7118-4033-bdd6-d217e755c341.jfif",
