@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "I18MJWxEIn/F5n9VDHFkEz08c+ziZneoqBeV8kDUljY=",
+  "Hash": "UxvF4Udp0pk0yUKq3Saa+QogWG6EaJoSdPfk/PdtWM0=",
   "Source": "MyWebPortfolio",
   "BasePath": "_content/MyWebPortfolio",
   "Mode": "Default",
@@ -202,6 +202,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\products\\cd50beac-d952-45cb-a197-e9e902b08e99.jfif"
+    },
+    {
+      "Identity": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\images\\products\\cf0be76e-4888-4a1f-a441-5d3faf2ffacc.jfif",
+      "SourceId": "MyWebPortfolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\",
+      "BasePath": "_content/MyWebPortfolio",
+      "RelativePath": "images/products/cf0be76e-4888-4a1f-a441-5d3faf2ffacc.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\cf0be76e-4888-4a1f-a441-5d3faf2ffacc.jfif"
     },
     {
       "Identity": "C:\\Projects\\MyWebPortfolio\\MyWebPortfolio\\MyWebPortfolio\\wwwroot\\images\\products\\d6c383f1-7118-4033-bdd6-d217e755c341.jfif",

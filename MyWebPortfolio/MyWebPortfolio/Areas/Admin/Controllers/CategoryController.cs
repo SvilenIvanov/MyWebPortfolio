@@ -76,6 +76,7 @@ public class CategoryController : Controller
     }
     [HttpPost]
     [ValidateAntiForgeryToken]
+
     public IActionResult Edit(Category category)
     {
 
